@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Página de teste: Modo Leitura Fácil</title>
+  <style>
+    body { margin: 0; font: 13px/1.2 Arial, sans-serif; color: #444; background: #f4f4f4; }
+
+    /* Link para pular direto ao conteúdo (aparece ao usar Tab) */
+    .skip { position: absolute; left: 12px; top: -60px; background: #fff; color: #1b3a5c; padding: 10px 14px; border-radius: 6px; font-weight: bold; z-index: 10; }
+    .skip:focus { top: 12px; }
+
+    /* Cabeçalho e menu */
+    header { background: #1b3a5c; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; padding: 14px 24px; box-shadow: 0 2px 6px rgba(0,0,0,.25); }
+    .brand { display: flex; align-items: center; gap: 10px; color: #fff; font-size: 20px; font-weight: bold; text-decoration: none; }
+    .logo { display: grid; place-items: center; width: 38px; height: 38px; border-radius: 10px; background: #ffbf00; color: #1b3a5c; font-size: 16px; }
+    nav ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+    header nav a { display: block; padding: 10px 16px; border-radius: 999px; color: #fff; font-size: 15px; font-weight: bold; text-decoration: none; transition: background .15s; }
+    header nav a:hover { background: rgba(255,255,255,.18); }
+    header nav a[aria-current="page"] { background: #fff; color: #1b3a5c; }
+    header a:focus-visible { outline: 3px solid #ffbf00; outline-offset: 2px; }
+
+    /* Conteúdo (propositalmente difícil de ler, para o "antes e depois") */
+    .layout { display: flex; gap: 20px; padding: 20px; }
+    article { flex: 1; background: #fff; padding: 20px; display: flow-root; }
+    article p { font-size: 12px; line-height: 1.1; color: #888; letter-spacing: -0.2px; text-align: justify; }
+    figure.esq { float: left; width: 42%; margin: 4px 20px 12px 0; }
+    figure.esq img { width: 100%; height: auto; display: block; }
+    figcaption { font-size: 11px; color: #888; margin-top: 4px; }
+    aside { width: 220px; }
+    .ad { background: #ffe08a; border: 2px dashed #c58b00; padding: 30px 10px; margin-bottom: 14px; text-align: center; font-weight: bold; }
+    aside nav a { font-size: 11px; color: #3a6ea5; }
+    footer { padding: 20px; background: #ddd; font-size: 11px; }
+
+    @media (max-width: 700px) {
+      .layout { flex-direction: column; }
+      aside { width: auto; }
+      figure.esq { float: none; width: 100%; margin: 0 0 12px; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#conteudo">Pular para o conteúdo</a>
+
+  <header>
+    <a class="brand" href="#"><span class="logo" aria-hidden="true">PE</span> Portal Exemplo</a>
+    <nav aria-label="Menu principal">
+      <ul>
+        <li><a href="#">Início</a></li>
+        <li><a href="#" aria-current="page">Notícias</a></li>
+        <li><a href="#">Esportes</a></li>
+        <li><a href="#">Cultura</a></li>
+        <li><a href="#">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="layout" id="conteudo">
+    <article>
+      <h1>Como a tecnologia assistiva muda o dia a dia de quem lê</h1>
+      <p>Ler na internet pode ser uma tarefa cansativa para muitas pessoas. Quem tem dislexia costuma confundir letras parecidas e perder a linha ao final de cada frase, enquanto pessoas com TDAH se distraem facilmente com menus, banners e notificações que disputam a atenção o tempo todo.</p>
+
+      <figure class="esq">
+        <img src="leitura.svg" width="640" height="360"
+             alt="Ilustração de um livro aberto com uma linha de texto destacada em amarelo e ondas sonoras saindo dele, representando a leitura em voz alta.">
+        <figcaption>Recursos como régua de leitura e voz sintetizada ajudam a acompanhar o texto.</figcaption>
+      </figure>
+
+      <p>Pequenos ajustes fazem uma grande diferença. Aumentar o espaço entre linhas, letras e palavras reduz o efeito de aglomeração visual. Uma fonte desenhada para ser legível ajuda a distinguir formas, e um fundo com contraste adequado diminui o esforço dos olhos durante a leitura prolongada.</p>
+      <p>A leitura em voz alta oferece outro caminho: em vez de decifrar cada palavra, a pessoa pode acompanhar o texto ouvindo. Isso beneficia não só quem tem dificuldades de leitura, mas também quem tem baixa visão ou está cansado depois de um longo dia de trabalho.</p>
+      <p>Por fim, recursos como a régua de leitura destacam apenas a linha atual e escurecem o restante da tela. Assim, o cérebro precisa processar menos informação ao mesmo tempo, e ficar na linha certa se torna muito mais fácil, mesmo em textos longos e densos.</p>
+      <p>As diretrizes WCAG e o eMAG já preveem muitos desses cuidados, como contraste mínimo, espaçamento de texto e possibilidade de ampliar o conteúdo. Uma extensão de navegador permite que o próprio usuário aplique essas adaptações em sites que ainda não foram projetados com acessibilidade.</p>
+    </article>
+
+    <aside aria-label="Publicidade e links relacionados">
+      <div class="ad">ANÚNCIO: Oferta imperdível!</div>
+      <div class="ad">ANÚNCIO: Clique aqui</div>
+      <nav aria-label="Mais lidas"><a href="#">Mais lidas</a></nav>
+    </aside>
+  </main>
+
+  <footer>© 2026 Portal Exemplo. Todos os direitos reservados.</footer>
+</body>
+</html>

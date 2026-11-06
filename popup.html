@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="autor" content="Michel de Lima" />
+  <title>Modo Leitura Fácil</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <main>
+    <h1>Modo Leitura Fácil</h1>
+
+    <form id="settings" autocomplete="off">
+      <fieldset>
+        <legend>Conteúdo</legend>
+        <label class="check"><input type="checkbox" name="focus"> Modo foco (só o texto principal)</label>
+      </fieldset>
+
+      <fieldset>
+        <legend>Texto</legend>
+        <label class="check"><input type="checkbox" name="textAdjust"> Ajustar texto</label>
+
+        <label class="field" for="font">Fonte</label>
+        <select id="font" name="font">
+          <option value="default">Original da página</option>
+          <option value="legivel">Atkinson Hyperlegible / Verdana</option>
+          <option value="dislexia">OpenDyslexic / Comic Sans</option>
+        </select>
+
+        <label class="field" for="fontSize">Tamanho <output id="fontSizeOut" for="fontSize"></output></label>
+        <input type="range" id="fontSize" name="fontSize" min="100" max="200" step="10">
+
+        <label class="field" for="lineHeight">Espaço entre linhas <output id="lineHeightOut" for="lineHeight"></output></label>
+        <input type="range" id="lineHeight" name="lineHeight" min="1.2" max="2.5" step="0.1">
+
+        <label class="field" for="letterSpacing">Espaço entre letras <output id="letterSpacingOut" for="letterSpacing"></output></label>
+        <input type="range" id="letterSpacing" name="letterSpacing" min="0" max="0.3" step="0.01">
+
+        <label class="field" for="wordSpacing">Espaço entre palavras <output id="wordSpacingOut" for="wordSpacing"></output></label>
+        <input type="range" id="wordSpacing" name="wordSpacing" min="0" max="0.5" step="0.02">
+      </fieldset>
+
+      <fieldset>
+        <legend>Cores</legend>
+        <label class="field" for="theme">Tema</label>
+        <select id="theme" name="theme">
+          <option value="default">Original da página</option>
+          <option value="escuro">Modo escuro</option>
+          <option value="contraste">Alto contraste (amarelo no preto)</option>
+          <option value="suave">Fundo suave (bege)</option>
+        </select>
+      </fieldset>
+
+      <fieldset>
+        <legend>Apoio à leitura</legend>
+        <label class="check"><input type="checkbox" name="ruler"> Régua de leitura</label>
+
+        <label class="field" for="speechRate">Velocidade da voz <output id="speechRateOut" for="speechRate"></output></label>
+        <input type="range" id="speechRate" name="speechRate" min="0.5" max="2" step="0.1">
+
+        <button type="button" id="readBtn">Ler em voz alta</button>
+        <p id="status" role="status" aria-live="polite"></p>
+        <p class="hint">Se houver texto selecionado, só ele será lido.</p>
+      </fieldset>
+    </form>
+
+    <button type="button" id="resetBtn" class="secondary">Restaurar padrões</button>
+  </main>
+  <script src="popup.js"></script>
+</body>
+</html>

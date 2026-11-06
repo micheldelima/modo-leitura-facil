@@ -1,0 +1,96 @@
+/* ===== Modo Leitura Fácil: estilos injetados na página ===== */
+
+/* --- Modo foco --- */
+.lf-hidden { display: none !important; }
+html.lf-focus body { display: block !important; }
+html.lf-focus .lf-focus-root {
+  display: block !important;
+  float: none !important;
+  width: auto !important;
+  max-width: 70ch !important;
+  margin: 0 auto !important;
+  padding: 1.5rem 1rem !important;
+}
+
+/* --- Ajuste de texto (WCAG 1.4.4 e 1.4.12) --- */
+html.lf-text body *:not(.lf-ruler):not(.lf-caption) {
+  letter-spacing: var(--lf-ls) !important;
+  word-spacing: var(--lf-ws) !important;
+}
+html.lf-text body :is(p, li, td, th, dd, dt, blockquote, figcaption, label) {
+  font-size: calc(16px * var(--lf-scale)) !important;
+}
+html.lf-text body h1 { font-size: calc(32px * var(--lf-scale)) !important; }
+html.lf-text body h2 { font-size: calc(26px * var(--lf-scale)) !important; }
+html.lf-text body h3 { font-size: calc(22px * var(--lf-scale)) !important; }
+html.lf-text body :is(h4, h5, h6) { font-size: calc(18px * var(--lf-scale)) !important; }
+html.lf-text body :is(p, li, td, th, dd, dt, blockquote, figcaption, label, h1, h2, h3, h4, h5, h6) {
+  line-height: var(--lf-lh) !important;
+}
+html.lf-text body p { margin-bottom: 1.5em !important; }
+
+/* Fontes (ícones e código ficam de fora para não quebrar) */
+html[data-lf-font="legivel"] body *:not(i):not([class*="icon" i]):not([class*="fa-"]):not(code):not(pre):not(kbd):not(samp) {
+  font-family: "Atkinson Hyperlegible", Verdana, Tahoma, sans-serif !important;
+}
+html[data-lf-font="dislexia"] body *:not(i):not([class*="icon" i]):not([class*="fa-"]):not(code):not(pre):not(kbd):not(samp) {
+  font-family: "OpenDyslexic", "Comic Sans MS", Verdana, sans-serif !important;
+}
+
+/* --- Temas de contraste (WCAG 1.4.3 e 1.4.6) --- */
+html[data-lf-theme="escuro"]   { --lf-bg: #121212; --lf-fg: #ededed; --lf-link: #8ab4f8; }
+html[data-lf-theme="contraste"]{ --lf-bg: #000000; --lf-fg: #ffff00; --lf-link: #00ffff; }
+html[data-lf-theme="suave"]    { --lf-bg: #faf3e0; --lf-fg: #2b2b2b; --lf-link: #0b4fa8; }
+
+html[data-lf-theme] { background: var(--lf-bg) !important; }
+html[data-lf-theme] body,
+html[data-lf-theme] body *:not(img):not(video):not(canvas):not(svg):not(.lf-ruler):not(.lf-caption) {
+  background-color: var(--lf-bg) !important;
+  color: var(--lf-fg) !important;
+  border-color: var(--lf-fg) !important;
+}
+html[data-lf-theme] body a,
+html[data-lf-theme] body a * {
+  color: var(--lf-link) !important;
+}
+
+/* --- Régua de leitura --- */
+.lf-ruler {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 40vh;
+  height: 3.2em;
+  pointer-events: none;
+  z-index: 2147483647;
+  border-top: 3px solid #ffbf00;
+  border-bottom: 3px solid #ffbf00;
+  box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.45);
+  transition: top 60ms linear;
+}
+@media (prefers-reduced-motion: reduce) {
+  .lf-ruler { transition: none; }
+}
+
+/* --- Imagem em leitura + legenda com o texto alternativo --- */
+.lf-reading-img {
+  outline: 5px solid #ffbf00 !important;
+  outline-offset: 4px !important;
+}
+.lf-caption {
+  position: fixed !important;
+  left: 50% !important;
+  bottom: 24px !important;
+  transform: translateX(-50%) !important;
+  max-width: min(90vw, 70ch) !important;
+  padding: 14px 18px !important;
+  background: #14213d !important;
+  color: #ffffff !important;
+  border: 3px solid #ffbf00 !important;
+  border-radius: 10px !important;
+  font: 18px/1.5 "Atkinson Hyperlegible", Verdana, sans-serif !important;
+  letter-spacing: normal !important;
+  word-spacing: normal !important;
+  z-index: 2147483647 !important;
+  pointer-events: none !important;
+}
